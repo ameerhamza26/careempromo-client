@@ -1,0 +1,29 @@
+<style type="text/css">
+    @media only screen and (max-width: 320px) {
+        .search-list {
+            top: 18%;position: absolute;width: 90%;left: 4%;
+        }
+    }
+
+    @media only screen and (min-width: 321px) {
+        .search-list {
+            top: 16%;position: absolute;width: 90%;left: 3%;
+        }
+    }
+</style>
+
+<ion-view title="Explore" hide-nav-bar="true">
+    <ion-header-bar>
+        <div class="buttons">
+            <button class="button button-icon ion-ios-arrow-back" style="color: black;" nav-direction="back" ng-click="$ionicGoBack(); "></button>
+        </div>
+        <h1 class="title fm-font-proxima" style="left: 61px;
+    right: 61px;">Explore map</h1>
+    </ion-header-bar>
+    <div ng-if="isButtonLoading" class="custom-loading">Loading&#8230;</div>
+    <ion-content class="has-header bg-color">
+        <!-- <div style="position: relative;height: 100%; width: 100%"> -->
+            <div id="map" ></div>
+<!--         </div> -->
+    </ion-content>
+</ion-view>

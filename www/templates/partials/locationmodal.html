@@ -1,0 +1,43 @@
+<ion-modal-view>
+    <div class="bar bar-header no-top">
+        <div class="buttons">
+            <button class="button button-icon ion-ios-arrow-back fd-color-white" nav-direction="back" ng-click="close(); "></button>
+        </div>
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios7-search placeholder-icon"></i>
+            <input id="pac-input1" type="search" ng-model="search.query" placeholder="Search Location" style="width: 100%;background: transparent;" ng-change="change(search.query)">
+        </label>
+        <div class="buttons">
+            <button class="button button-icon ion-ios-search-strong fd-color-white"></button>
+        </div>
+    </div>
+    <ion-content class="has-header fd-bg">
+        <ion-list>
+            <!--           <ion-item ng-show="search.error">
+            {{search.error}}
+          </ion-item> -->
+            <ion-item ng-repeat="suggestion in search.suggestions" ng-click="choosePlaceSearch(suggestion)">
+                {{suggestion.description}}
+            </ion-item>
+        </ion-list>
+        <div class="m-align heading-light pam">
+            Select from nearby Restaurant
+        </div>
+                <div ng-if="isLoading" style="width:100%;">
+            <ion-spinner style="margin-left:47%;" icon="spiral"></ion-spinner>
+        </div>
+        <div class="list">
+          <a class="item item-check-custom txt-white" ng-repeat="x in nearyByPlaces"  ng-click="choosePlace(x)">
+            {{x.name}}
+          </a>
+        </div>
+
+
+<!--         <ion-list>
+            <ion-item ng-repeat="x in nearyByPlaces" ng-click="choosePlace(x)">
+                {{x.name}}
+            </ion-item>
+        </ion-list> -->
+        <!-- <img src="https://developers.google.com/maps/documentation/places/images/powered-by-google-on-white.png" alt="" /> -->
+    </ion-content>
+</ion-modal-view>

@@ -1,0 +1,28 @@
+<div  class="feed-card" ng-repeat="x in activities">
+    <div ng-if="isBrand" class="user-img">
+        <img ng-src="{{x.user.media[0].small || $root.defaultUser}}">
+        <div class="name">
+            {{x.user.name}}
+            <br/>
+            <span class="feed-time">{{x.feed.createdTimeStamp | readableTime}}</span>
+        </div>
+    </div>
+    <div class="feed-img">
+        <img ng-src="{{ $root.defaultPost }}">
+        <div class="feed-price">
+            $ {{x.feed.price}}
+        </div>
+        <div class="feed-distance" ng-if="isBrand">
+            {{x.distance}} Mil
+        </div>
+    </div>
+    <div class="feed-remarks">
+        {{x.feed.remark}}
+    </div>
+    <div class="feed-loc font-quick-bold">
+        <span><i class="icon ion-navicon-round nr-color-blue"></i><span class="mlm" ng-repeat="a in x.feed.category">{{a}}</span></span> <span class="mll"><i class="ion-ios-location nr-color-blue"></i><span class="mlm">{{x.feed.place || x.feed.location_name}}</span></span>
+    </div>
+    <div class="feed-buttons font-quick-bold" ng-hide="true">
+        <span class="pas"><i class="ion-ios-heart feed-like-icon"></i><span class="mlm">LIKE</span></span><span class="mlm pas"><i class="ion-chatbubble feed-like-icon"></i><span class="mlm">COMMENT</span></span><span class="mlm pas"><i class="ion-ios-upload-outline feed-like-icon"></i><span class="mlm">SHARE</span></span>
+    </div>
+</div>

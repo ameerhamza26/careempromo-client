@@ -1,0 +1,19 @@
+<ion-view>
+    <ion-header-bar>
+        <div class="buttons">
+              <button class="button button-icon ion-ios-arrow-back" style="color: black;" nav-direction="back" ng-click="$ionicGoBack(); "></button>
+        </div> 
+        <h1 class="title">HOME</h1>
+        <div class="buttons">
+              <button class="button button-icon" style="color: black;"  ng-click="$root.logout(); ">Logout</button>
+        </div> 
+    </ion-header-bar> 
+    <ion-content class="has-header has-footer bg-color" >
+        <ion-refresher class="fd-color-white" pulling-text="Pull to refresh..." on-refresh="doRefresh()"></ion-refresher>
+        <feeds is-brand="true" activities="feeds"></feeds>
+        <ion-infinite-scroll on-infinite="getDashboardFeed()" distance="1%" ng-if="!noMoreFeedContent"></ion-infinite-scroll>
+    </ion-content>
+<ion-footer-bar class="bg-color ">
+<button class="custom-button" style="margin-top: 0;" ng-click="navigateToMap()">View on map</button>
+</ion-footer-bar>
+</ion-view>

@@ -1,0 +1,20 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive" style="background-color: white;">
+        <div class="buttons">
+            <button class="button button-clear" style="color: black;" ng-click="cancel()">Cancel</button>
+        </div>
+        <h1 class="title" style="color: black;">Enter Price</h1>
+        <div class="buttons">
+            <button class="button button-clear" style="color: black;" ng-click="confirm()">Done</button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="bg-color">
+    <div class="add-a-price pbm" style="    padding-bottom: 10px;">
+        <img src="img/price.png">
+        <div class="mtm fm-font-thinned caption">Add Price</div>
+    </div>
+    <div class="m-align mtm">
+    <input  ng-model="obj.price" type="number" class="price-input" focus-me> 
+    </div>
+    </ion-content>
+</ion-modal-view>

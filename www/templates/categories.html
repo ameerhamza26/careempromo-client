@@ -1,0 +1,16 @@
+<ion-view>
+<ion-header-bar>
+<h1 class="title" style="text-align:  center;">Select your interests</h1>
+</ion-header-bar>
+<ion-content class="has-header has-footer bg-color">
+<ion-list>
+	<ion-item ng-repeat="x in categories" ng-click="check($index)">
+	{{x.category_name}} <img ng-if="x.checked" src="img/check.png" class="check-style">
+
+	</ion-item>
+</ion-list>
+</ion-content>
+<ion-footer-bar class="bg-color ">
+<button class="custom-button" style="margin-top: 0;" ng-click="submit()">Submit</button>
+</ion-footer-bar>
+</ion-view>

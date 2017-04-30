@@ -1,0 +1,21 @@
+<ion-view>
+    <ion-header-bar>
+        <h1 class="title" style="text-align:  center;">Select your route</h1>
+    </ion-header-bar>
+    <ion-content class="has-header bg-color">
+        <input class="searchPlace" type="text" placeholder="Home Location" ng-model="user.locationtext" ng-change="change(user.locationtext)">
+        <ion-list class="custom-drp-list">
+            <ion-item ng-repeat="suggestion in searchHome.suggestions | limitTo: 3" ng-click="choosePlace(suggestion, 1)">
+                {{suggestion.description}}
+            </ion-item>
+        </ion-list>
+        <input class="searchPlace" type="text" placeholder="Select Destination" ng-model="user.destinationtext" ng-change="changeDestination(user.destinationtext)">
+        <ion-list class="custom-drp-list">
+            <ion-item ng-repeat="suggestion in searchDestination.suggestions | limitTo: 3" ng-click="choosePlace(suggestion, 0)">
+                {{suggestion.description}}
+            </ion-item>
+        </ion-list>
+
+        <button class="custom-button" ng-click="letsGo()">Lets find out!</button>
+    </ion-content>
+</ion-view>

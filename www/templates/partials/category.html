@@ -1,0 +1,21 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-positive" style="background-color: white"> 
+        <div class="buttons">
+            <button class="button button-icon lg-icon-cross-small lg-l-float" ng-click="vm.cancel()" style="color: black;"></button>
+        </div>
+        <h1 class="title" style="color: black;">Add Category</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="vm.confirm(vm.category)" style="color: black;">Done</button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="bg-color">
+        <div>
+            <div class="fd-m-align mtl" ng-if="isLoading">
+                <ion-spinner></ion-spinner>
+            </div>
+            <ion-list>
+                <ion-checkbox ng-repeat="cat in categories" ng-model="cat.check">{{cat.category_name}}</ion-checkbox>
+            </ion-list>
+        </div>
+    </ion-content>
+</ion-modal-view>

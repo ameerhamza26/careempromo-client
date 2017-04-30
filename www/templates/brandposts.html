@@ -1,0 +1,14 @@
+<ion-view>
+    <ion-header-bar>
+        <h1 class="title">My Posts</h1>
+        <div class="buttons">
+              <button class="button button-icon" style="color: black;"  ng-click="$root.logout(); ">Logout</button>
+        </div> 
+    </ion-header-bar> 
+    <ion-content class="has-header has-footer bg-color" >
+        <feeds is-brand="false" activities="activities"></feeds>
+    </ion-content>
+<ion-footer-bar class="bg-color ">
+<button class="custom-button" style="margin-top: 0;" ng-click="openCreatePostModal()">Create new post</button>
+</ion-footer-bar>
+</ion-view>

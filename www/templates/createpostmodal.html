@@ -1,0 +1,47 @@
+<style type="text/css">
+.submitpost {
+    color: white !important;
+}
+
+.submitpost[disabled] {
+    color: grey;
+}
+</style>
+
+<ion-modal-view>
+    <ion-header-bar class="bar-positive" style="background-color: rgba(57,181,79,1);">
+        <div class="buttons">
+            <button class="button button-clear lg-l-float" ng-click="cancel()">Cancel</button>
+        </div>
+        <h1 class="title">Create your post!</h1>
+        <div class="buttons">
+            <button class="button button-clear lg-l-float" ng-click="creatPost()" ng-disabled="isPosting">Create</button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="fd-bg" delegate-handle="mainScroll">
+        <div class="fd-createpost-img-contain">
+            <img ng-src="{{imageData}}" class="fd-img objectcover" style="z-index:10">
+            <div ng-if="isloading && $root.loadedValue > 0" class="loader fd-createpost-img-loader">
+            </div>
+            <div ng-if="isloading  && $root.loadedValue > 0" class="fd-createpost-img-loadedtext">{{$root.loadedValue}} % </div>
+            <div ng-click="uploadpostimage()" ng-if="isloading  && $root.loadedValue <= 0" class="fd-createpost-img-loadedicon"><img src="img/camera.png" class="fd-img">
+            </div>
+        </div>
+        <div class="fd-createpost-remark-contain">
+            <!--div class="fd-createpost-user-img">
+          <img ng-src="{{$root.user.media[0].medium ||$root.defaultUser}}" class="fd-img fd-img-br">
+        </div-->
+            <textarea class="fd-createpost-remarktext fm-font-proxima" placeholder="Give it a nice caption..." ng-model="final_obj.remark" onfocus="this.placeholder = ''; isFocus=true;" onblur="this.placeholder = 'Give it a nice caption...'; isFocus =false;"></textarea>
+        </div>
+        
+        <div class="pts plm prm pbs fd-createpost-hashtags" ng-click="selectLocation()">
+            <p><b><i class="ion-ios-location fm-color-light"></i><span class="plm"><input id="searchInputCreatePostModal" type="text" name="" style="display: inline;width:90%; background:transparent; color: black;" placeholder="Add Location" ng-model="final_obj.location_name" disabled></span></b></p>
+        </div>
+        <div on-tap="selectCategory()" class="ptm plm prm pbm fd-createpost-hashtags">
+            <p><b><i class="ion-ios-pricetags fm-color-light"></i><span class="plm fd-color-white" ng-repeat="cat in final_obj.category" ng-style="categoryStyle">{{cat}}<span ng-if="final_obj.category.length > 1 && $index != (final_obj.category.length -1)">,</span></span></b></p>
+        </div>
+        <div class="pts plm prm pbs fd-createpost-hashtags" ng-click="openPriceModal()">
+            <p><b><i class="ion-cash fm-color-light"></i><span class="plm ptm pbm" style="color: black;">{{final_obj.price}}</span></b></p>
+        </div>
+    </ion-content>
+</ion-modal-view>
